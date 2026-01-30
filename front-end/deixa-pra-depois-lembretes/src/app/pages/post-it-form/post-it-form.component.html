@@ -1,0 +1,41 @@
+<form
+  class="max-w-md mx-auto mt-10 flex flex-col gap-4"
+  [formGroup]="form"
+  (ngSubmit)="salvar()">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="titulo">
+
+    @if (form.controls.titulo.invalid && form.controls.titulo.touched) {
+      <mat-error>
+        O título é obrigatório (mín. 3 caracteres)
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Descrição</mat-label>
+    <textarea
+      matInput
+      rows="4"
+      formControlName="descricao">
+    </textarea>
+
+    @if (form.controls.descricao.invalid && form.controls.descricao.touched) {
+      <mat-error>
+        A descrição é obrigatória
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid">
+    {{ postId ? 'Atualizar' : 'Salvar' }}
+  </button>
+
+</form>
+

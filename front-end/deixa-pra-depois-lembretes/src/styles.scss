@@ -1,0 +1,32 @@
+/* 1️⃣ SEMPRE no topo */
+@use '@angular/material' as mat;
+
+/* 2️⃣ Core do Material */
+@include mat.core();
+
+/* 3️⃣ Paleta de cores */
+$primary: mat.define-palette(mat.$indigo-palette);
+$accent: mat.define-palette(mat.$pink-palette);
+$warn: mat.define-palette(mat.$red-palette);
+
+/* 4️⃣ Tema */
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn
+  )
+));
+
+/* 5️⃣ Aplica o tema */
+@include mat.all-component-themes($theme);
+
+/* 6️⃣ AGORA pode ter CSS normal */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
