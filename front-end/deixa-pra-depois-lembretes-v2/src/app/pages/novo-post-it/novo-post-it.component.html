@@ -1,1 +1,42 @@
-<p>novo-post-it works!</p>
+<div class="container">
+  <h2>{{ editando ? 'Editar Post-it' : 'Novo Post-it' }}</h2>
+
+  <form #form="ngForm" (ngSubmit)="salvar()">
+
+    <input
+      type="text"
+      name="titulo"
+      placeholder="Título"
+      [(ngModel)]="post_it.titulo"
+      required
+      minlength="3"
+      maxlength="50"
+      #titulo="ngModel"
+    />
+
+    @if (titulo.invalid && titulo.touched) {
+      <small class="error">Título inválido</small>
+    }
+
+    <textarea
+      name="descricao"
+      placeholder="Descrição"
+      [(ngModel)]="post_it.descricao"
+      required
+      minlength="3"
+      maxlength="300"
+      #descricao="ngModel"
+    ></textarea>
+
+    @if (descricao.invalid && descricao.touched) {
+      <small class="error">Descrição inválida</small>
+    }
+
+    <button type="submit" [disabled]="form.invalid">
+      {{ editando ? 'Atualizar' : 'Salvar' }}
+    </button>
+
+  </form>
+</div>
+
+

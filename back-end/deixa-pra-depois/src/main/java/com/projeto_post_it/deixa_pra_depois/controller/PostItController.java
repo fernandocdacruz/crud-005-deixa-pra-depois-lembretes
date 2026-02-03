@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/deixa-pra-depois")
 @CrossOrigin(origins = "http://localhost:4200")
+@RestController
+@RequestMapping("/deixa-pra-depois")
 @RequiredArgsConstructor
 public class PostItController {
 
@@ -30,6 +30,12 @@ public class PostItController {
     public List<PostItResponseDTO> listarTodosPostIts() {
         return service.listarTodosPostIts();
     }
+
+    @GetMapping("/{id}")
+    public PostItResponseDTO buscarPorId(@PathVariable Long id) {
+        return service.buscarPostItPorId(id);
+    }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<PostItResponseDTO> atualizarPostIt(@PathVariable Long id, @Valid @RequestBody PostItUpdateDTO postItUpdateDTO) {

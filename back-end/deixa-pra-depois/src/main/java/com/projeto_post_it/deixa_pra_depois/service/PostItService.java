@@ -31,6 +31,13 @@ public class PostItService {
                 .toList();
     }
 
+    public PostItResponseDTO buscarPostItPorId(Long id) {
+        PostIt postIt = repository.findById(id)
+                .orElseThrow(() -> new RegraNegocioException("Post-it não encontrado."));
+        return mapper.toResponseDto(postIt);
+    }
+
+
     @Transactional
     public PostItResponseDTO atualizarPostIt(Long id, PostItUpdateDTO dto) {
         PostIt postIt = repository.findById(id)

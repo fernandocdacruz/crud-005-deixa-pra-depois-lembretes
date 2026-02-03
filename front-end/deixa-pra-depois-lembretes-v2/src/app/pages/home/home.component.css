@@ -1,0 +1,36 @@
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  background: #ecf0f1;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.btn.primary {
+  background: #3498db;
+  color: #fff;
+}
+

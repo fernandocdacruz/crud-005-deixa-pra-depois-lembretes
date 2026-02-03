@@ -1,1 +1,20 @@
-<p>mural-post-its works!</p>
+<div class="container">
+  <h2>Meus Lembretes</h2>
+
+  <div class="cards">
+    @for (p of post_its; track p.id) {
+      <div class="card">
+        <h3>{{ p.titulo }}</h3>
+        <p>{{ p.descricao }}</p>
+
+        <div class="actions">
+          <a [routerLink]="['/editar-post-it', p.id]">Editar</a>
+          <button class="danger" (click)="excluir(p.id!)">Excluir</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+
+
